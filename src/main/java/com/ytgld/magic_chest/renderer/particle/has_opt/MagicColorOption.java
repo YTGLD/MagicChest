@@ -3,7 +3,6 @@ package com.ytgld.magic_chest.renderer.particle.has_opt;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.ytgld.chest_item.renderer.particle.other.Particles;
 import com.ytgld.magic_chest.renderer.particle.other.MagicParticles;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.core.particles.ParticleOptions;

@@ -1,8 +1,5 @@
 package com.ytgld.magic_chest.init;
 
-import com.ytgld.chest_item.items.InitItems;
-import com.ytgld.chest_item.items.memory.MemoryItems;
-import com.ytgld.chest_item.items.reinforced.ReinforcedItems;
 import com.ytgld.magic_chest.TheMagicChest;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -11,8 +8,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.Objects;
 
 public class MagicTab {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, "chest_item");
@@ -25,6 +20,7 @@ public class MagicTab {
             output.accept(MagicItems.SpiritSoul_);
             output.accept(MagicItems.DeathSoul_);
             output.accept(MagicItems.MagicSoul_);
+            output.accept(MagicItems.SoulBottle_);
         }).build();
     });;
 }

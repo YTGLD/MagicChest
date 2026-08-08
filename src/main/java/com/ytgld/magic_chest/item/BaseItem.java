@@ -1,11 +1,13 @@
 package com.ytgld.magic_chest.item;
 
 import com.mojang.blaze3d.pipeline.RenderPipeline;
-import com.ytgld.chest_item.event.use.EventMain;
 import com.ytgld.chest_item.renderer.MRender;
-import com.ytgld.chest_item.renderer.light.Light;
+import com.ytgld.magic_chest.event.MagicEvent;
+import com.ytgld.magic_chest.renderer.Light;
 import com.ytgld.magic_chest.TheMagicChest;
+import com.ytgld.magic_chest.renderer.MagicRender;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
@@ -32,7 +34,15 @@ public class BaseItem extends Item {
     public Identifier identifier(){
         return Identifier.fromNamespaceAndPath(TheMagicChest.MODID,"textures/gui/star.png");
     }
-
+    public static void renderBack(GuiGraphicsExtractor guiGraphics, int x, int y, int width, int height
+            , Identifier farmer, Identifier back , int colorF,int colorB) {
+        int i = x - 3 - 9;
+        int j = y - 3 - 9;
+        int k = width + 3 + 3 + 18;
+        int l = height + 3 + 3 + 18;
+        guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, farmer, i, j, k, l,colorF);
+        guiGraphics.blitSprite(MRender.RenderPs.GUI_TEXTURED, back, i, j, k, l,colorB);
+    }
     @Override
     public final void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
         this.appendHoverText(itemStack, builder, tooltipFlag);
@@ -47,12 +57,12 @@ public class BaseItem extends Item {
             if (!item.canLight()) {
                 return;
             }
-            int time = EventMain.time;
+            int time = MagicEvent.time;
             Identifier identifier = item.identifier();
             Matrix3x2fStack pose  = guiGraphicsExtractor.pose();
-            RenderPipeline renderPipeline = MRender.RenderPs.GUI_TEXTURED;
+            RenderPipeline renderPipeline = MagicRender.RenderPs.GUI_TEXTURED;
             if (item.asBlackLight()) {
-                renderPipeline = MRender.RenderPs.GUI_TEXTURED_BLACK_BlendFunction;
+                renderPipeline = MagicRender.RenderPs.GUI_TEXTURED_BLACK_BlendFunction;
             }
             float rotate = (float) (time / 125f + Math.abs(Math.sin(seed) * 100));
             int color = item.color();

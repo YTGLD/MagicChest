@@ -2,12 +2,11 @@ package com.ytgld.magic_chest.entity;
 
 import com.ytgld.magic_chest.init.MagicEntitys;
 import com.ytgld.magic_chest.item.BaseItem;
+import com.ytgld.magic_chest.item.soul.SoulBottle;
 import com.ytgld.magic_chest.renderer.particle.has_opt.CubeOption;
 import com.ytgld.magic_chest.renderer.particle.has_opt.MagicColorOption;
 import com.ytgld.magic_chest.renderer.particle.other.MagicParticles;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.stats.Stats;
-import net.minecraft.util.TriState;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -15,11 +14,9 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileDeflection;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.event.EventHooks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +39,7 @@ public class TheSpirit extends ItemEntity {
     public int live = 50;
     @Override
     public void tick() {
+        super.tick();
         if (canSee) {
             if (getItem().getItem() instanceof BaseItem item) {
                 if (this.level() instanceof ServerLevel serverLevel) {
@@ -57,7 +55,6 @@ public class TheSpirit extends ItemEntity {
                 }
             }
         }
-        super.tick();
         this.noPhysics = true;
         this.setNoGravity(true);
         if (canSee) {
@@ -102,7 +99,9 @@ public class TheSpirit extends ItemEntity {
     }
     @Override
     public void playerTouch(Player player) {
-        super.playerTouch(player);
+        if (SoulBottle.addSoul(player, this)) {
+            super.playerTouch(player);
+        }
         setCanSee(false);
         if (getItem().getItem() instanceof BaseItem item) {
             if (this.level() instanceof ServerLevel serverLevel) {

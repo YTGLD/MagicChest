@@ -6,9 +6,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class SpiritSoulHandler {
     public static void event(LivingDamageEvent.Post event){

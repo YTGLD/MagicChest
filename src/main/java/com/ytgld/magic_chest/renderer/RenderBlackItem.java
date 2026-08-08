@@ -2,7 +2,7 @@ package com.ytgld.magic_chest.renderer;
 
 
 import com.ytgld.chest_item.renderer.MRender;
-import com.ytgld.chest_item.renderer.light.Light;
+import com.ytgld.magic_chest.renderer.Light;
 import com.ytgld.magic_chest.TheMagicChest;
 import com.ytgld.magic_chest.item.BaseItem;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -75,7 +75,7 @@ public class RenderBlackItem {
         pose.translate(x, y);
         pose.rotate(time);
         pose.translate(-x, -y);
-        guiGraphics.blit(MRender.RenderPs.GUI_TEXTURED_BLACK_BlendFunction, fire,
+        guiGraphics.blit(MagicRender.RenderPs.GUI_TEXTURED_BLACK_BlendFunction, fire,
                 (int) (x - size / 2f), (int) (y - size /2f), 0, 0,
                 size, size, size, size,
                 color);

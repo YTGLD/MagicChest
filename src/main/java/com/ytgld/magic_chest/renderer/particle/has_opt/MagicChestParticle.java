@@ -1,8 +1,7 @@
 package com.ytgld.magic_chest.renderer.particle.has_opt;
 
-import com.ytgld.chest_item.renderer.light.Light;
+import com.ytgld.magic_chest.renderer.Light;
 import com.ytgld.magic_chest.renderer.MagicRender;
-import com.ytgld.magic_chest.renderer.particle.other.MagicParticles;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;
@@ -11,7 +10,6 @@ import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
 public class MagicChestParticle extends SingleQuadParticle {
@@ -43,7 +41,7 @@ public class MagicChestParticle extends SingleQuadParticle {
 
     @Override
     protected @NotNull Layer getLayer() {
-        return new Layer(true, TextureAtlas.LOCATION_PARTICLES, MagicRender.TRANSLUCENT_PARTICLE);
+        return new Layer(true, TextureAtlas.LOCATION_PARTICLES, MagicRender.RenderPs.TRANSLUCENT_PARTICLE);
     }
     public record Provider(SpriteSet sprite) implements ParticleProvider<MagicColorOption> {
         public Provider(SpriteSet sprite) {

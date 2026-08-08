@@ -1,6 +1,6 @@
 package com.ytgld.magic_chest.item;
 
-import com.ytgld.chest_item.renderer.light.Light;
+import com.ytgld.magic_chest.renderer.Light;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;

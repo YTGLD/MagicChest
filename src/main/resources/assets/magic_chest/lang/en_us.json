@@ -13,5 +13,9 @@
   "magic_chest.soul.magic_soul": "奥法",
 
   "item.magic_chest.celestial_soul": "仙魂",
-  "magic_chest.soul.celestial_soul": "帝韵"
+  "magic_chest.soul.celestial_soul": "帝韵",
+
+
+  "item.magic_chest.soul_bottle": "灵魂瓶",
+  "item.magic_chest.soul_bottle.tooltip.1": "收集那些飞散的灵魂，多收集一些"
 }

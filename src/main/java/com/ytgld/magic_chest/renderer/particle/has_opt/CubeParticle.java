@@ -1,6 +1,5 @@
 package com.ytgld.magic_chest.renderer.particle.has_opt;
 
-import com.ytgld.chest_item.renderer.light.Light;
 import com.ytgld.magic_chest.renderer.MagicRender;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.Particle;
@@ -8,7 +7,6 @@ import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.SingleQuadParticle;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.renderer.texture.TextureAtlas;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import org.jetbrains.annotations.NotNull;
 
@@ -41,7 +39,7 @@ public class CubeParticle extends SingleQuadParticle {
 
     @Override
     protected @NotNull Layer getLayer() {
-        return new Layer(true, TextureAtlas.LOCATION_PARTICLES, MagicRender.TRANSLUCENT_PARTICLE);
+        return new Layer(true, TextureAtlas.LOCATION_PARTICLES, MagicRender.RenderPs.TRANSLUCENT_PARTICLE);
     }
     public record Provider(SpriteSet sprite) implements ParticleProvider<CubeOption> {
         public Provider(SpriteSet sprite) {

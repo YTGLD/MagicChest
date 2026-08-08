@@ -124,11 +124,14 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
+    maven {
+        url "https://cursemaven.com"
+    }
 }
 
 dependencies {
     implementation "maven.modrinth:EAEFHW1O:l9Fvs1hh"
-    // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
+    implementation "curse.maven:jei-238222:8333245"
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
     // compileOnly "mezz.jei:jei-${mc_version}-neoforge-api:${jei_version}"
     // We add the full version to localRuntime, not runtimeOnly, so that we do not publish a dependency on it

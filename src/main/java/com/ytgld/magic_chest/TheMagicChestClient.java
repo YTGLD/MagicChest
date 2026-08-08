@@ -2,6 +2,7 @@ package com.ytgld.magic_chest;
 
 import com.ytgld.magic_chest.entity.render.TheSpiritRender;
 import com.ytgld.magic_chest.init.MagicEntitys;
+import com.ytgld.magic_chest.jei.ModRecipeCache;
 import com.ytgld.magic_chest.other.ToolTipSpiritItem;
 import com.ytgld.magic_chest.renderer.RenderBlackItem;
 import com.ytgld.magic_chest.renderer.particle.has_opt.CubeParticle;
@@ -12,10 +13,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.client.event.ClientTickEvent;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
@@ -39,6 +37,10 @@ public class TheMagicChestClient {
     @SubscribeEvent
     public static void RegisterRenderPipelinesEvent(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(MagicEntitys.TheSpirit_.get(), TheSpiritRender::new);
+    }
+    @SubscribeEvent
+    public static void event(RecipesReceivedEvent event) {
+        ModRecipeCache.event(event);
     }
     @SubscribeEvent
     public static void RegisterClientTooltipComponentFactoriesEvent(RegisterClientTooltipComponentFactoriesEvent event) {

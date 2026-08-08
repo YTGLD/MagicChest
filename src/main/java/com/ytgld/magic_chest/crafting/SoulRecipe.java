@@ -27,9 +27,9 @@ import java.util.Map;
 
 
 public class SoulRecipe implements CraftingRecipe{
-    final List<Ingredient> ingredients;
-    final Holder<Item> result;
-    final int resultCount;
+    public final List<Ingredient> ingredients;
+    public final Holder<Item> result;
+    public final int resultCount;
 
     private final Map<String, Integer> soulCost;
 

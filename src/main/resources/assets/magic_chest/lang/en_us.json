@@ -1,6 +1,17 @@
 {
   "itemGroup.magic_chest": "神秘箱子",
   "item.magic_chest.blood_soul": "血魂",
+  "magic_chest.soul.blood_soul": "血腥",
+
   "item.magic_chest.spirit_soul": "灵魂",
-  "item.magic_chest.celestial_soul": "仙魂"
+  "magic_chest.soul.spirit_soul": "未知存在",
+
+  "item.magic_chest.death_soul": "亡魂",
+  "magic_chest.soul.death_soul": "腐朽",
+
+  "item.magic_chest.magic_soul": "魔魂",
+  "magic_chest.soul.magic_soul": "奥法",
+
+  "item.magic_chest.celestial_soul": "仙魂",
+  "magic_chest.soul.celestial_soul": "帝韵"
 }

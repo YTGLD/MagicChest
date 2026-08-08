@@ -27,6 +27,8 @@ public class SpiritSoulHandler {
         list.add(MagicItems.BloodSoul_.asItem());
         list.add(MagicItems.CelestialSoul_.asItem());
         list.add(MagicItems.SpiritSoul_.asItem());
+        list.add(MagicItems.MagicSoul_.asItem());
+        list.add(MagicItems.DeathSoul_.asItem());
         return list;
     }
 }

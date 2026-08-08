@@ -2,6 +2,7 @@ package com.ytgld.magic_chest.entity.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Axis;
 import com.ytgld.chest_item.HandlerClient;
 import com.ytgld.chest_item.renderer.MRender;
 import com.ytgld.chest_item.renderer.light.Light;
@@ -48,20 +49,18 @@ public class TheSpiritRender  extends EntityRenderer<TheSpirit, TheSpiritState> 
     }
 
     public void submit(TheSpiritState renderState, PoseStack poseStack, SubmitNodeCollector collector, CameraRenderState camera) {
-        HandlerClient.showOutline = true;
-        HandlerClient.doPass = true;
         TheSpirit entity = renderState.entity;
         double x = Mth.lerp((double)renderState.partialTick, entity.xOld, entity.getX());
         double y = Mth.lerp((double)renderState.partialTick, entity.yOld, entity.getY());
         double z = Mth.lerp((double)renderState.partialTick, entity.zOld, entity.getZ());
         poseStack.pushPose();
         poseStack.translate(entity.getX() - x, entity.getY() - y, entity.getZ() - z);
-        collector.submitCustomGeometry(poseStack, MRender.colorOutlineLines(true), (pose, bufferSource) -> this.setT2(pose, entity, bufferSource));
         collector.submitCustomGeometry(poseStack, MRender.colorOutlineLines(false), (pose, bufferSource) -> this.setT2(pose, entity, bufferSource));
 
         if (entity.canSee) {
             if (!renderState.item.isEmpty()) {
-                poseStack.scale(0.5F, 0.5F, 0.5F);
+                poseStack.mulPose(Axis.YP.rotationDegrees(entity.tickCount));
+                poseStack.scale(0.25f, 0.25f, 0.25f);
                 renderState.item.submit(poseStack, collector, 255, OverlayTexture.NO_OVERLAY, renderState.outlineColor);
             }
         }
@@ -78,10 +77,10 @@ public class TheSpiritRender  extends EntityRenderer<TheSpirit, TheSpiritState> 
             alpha *= 255.0f;
             if (entity.getItem().getItem() instanceof BaseItem baseItem) {
                 int color = baseItem.color();
-                int as = (color >> 24) & 0xFF * 255;
-                int rs = (color >> 16) & 0xFF * 255;
-                int gs = (color >> 8) & 0xFF * 255;
-                int bs = color & 0xFF * 255;
+                int as = (color >> 24) & 0XFF;
+                int rs = (color >> 16) & 0XFF;
+                int gs = (color >> 8) & 0XFF;
+                int bs = color & 0XFF;
                 addSquare(vertexConsumers, matrices, adjustedCurrPos, adjustedPrevPos,
                         Light.ARGB.color((int)alpha, rs, gs, bs),
                         (float)i / (float)entity.getTrailPositions().size() * 10f);

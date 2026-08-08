@@ -63,18 +63,24 @@ public class TheSpirit extends ItemEntity {
         if (canSee) {
             Entity target = this.getOwner();
             if (target instanceof LivingEntity livingEntity) {
-                if (tickCount > 30 && tickCount < 200) {
+                if (tickCount > 30) {
+                    float size = Math.min((tickCount - 30f) / 100f, 0.63f);
+
                     Vec3 targetPos = livingEntity.position();
                     Vec3 direction = targetPos.subtract(position()).normalize();
-                    Vec3 current = getDeltaMovement().normalize();
-                    double angle = Math.acos(current.dot(direction));
-                    if (angle > Math.toRadians(25)) {
-                        double limit = Math.toRadians(25);
-                        Vec3 newDir = current.scale(Math.cos(limit)).add(direction.scale(Math.sin(limit)));
-                        setDeltaMovement(newDir.scale(0.3f));
-                    } else {
-                        setDeltaMovement(direction.scale(0.3f));
-                    }
+
+                    Vec3 targetVelocity = direction.scale(size)
+                            .add(
+                                    Math.cos(tickCount / 7.5f) / 20f,
+                                    Math.sin(tickCount / 7.5f) / 20f,
+                                    0
+                            );
+
+                    Vec3 smoothVelocity = getDeltaMovement()
+                            .scale(0.9)
+                            .lerp(targetVelocity, 0.08);
+
+                    setDeltaMovement(smoothVelocity);
                 }
             }
         }else {
@@ -98,16 +104,19 @@ public class TheSpirit extends ItemEntity {
     public void playerTouch(Player player) {
         super.playerTouch(player);
         setCanSee(false);
+        if (getItem().getItem() instanceof BaseItem item) {
+            if (this.level() instanceof ServerLevel serverLevel) {
+                serverLevel.sendParticles(CubeOption.creatParticle(MagicParticles.colorCube.get(),
+                        Vec3.ZERO,true,item.color(),0.66f),getX(),getY(),getZ(),1,0,0,0,0);
+
+                serverLevel.sendParticles(MagicColorOption.creatParticle(MagicParticles.colorOption.get(),
+                        Vec3.ZERO,true,item.color(),1.25f),getX(),getY(),getZ(),1,0,0,0,0);
+            }
+        }
     }
     public void setCanSee(boolean canSee) {
         this.canSee = canSee;
-        if (getItem().getItem() instanceof BaseItem item) {
-            if (this.level() instanceof ServerLevel serverLevel) {
-                serverLevel.sendParticles(MagicColorOption.creatParticle(MagicParticles.colorOption.get(),
-                                this.getDeltaMovement().scale(0.1f),true,item.color(),3.5f)
-                        ,getX(),getY(),getZ(),1,0,0,0,0);
-            }
-        }
+
     }
 
     @Override

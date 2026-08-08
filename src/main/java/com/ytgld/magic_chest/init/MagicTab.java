@@ -23,6 +23,8 @@ public class MagicTab {
             output.accept(MagicItems.BloodSoul_);
             output.accept(MagicItems.CelestialSoul_);
             output.accept(MagicItems.SpiritSoul_);
+            output.accept(MagicItems.DeathSoul_);
+            output.accept(MagicItems.MagicSoul_);
         }).build();
     });;
 }

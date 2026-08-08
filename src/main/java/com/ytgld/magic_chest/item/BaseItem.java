@@ -6,10 +6,15 @@ import com.ytgld.chest_item.renderer.MRender;
 import com.ytgld.chest_item.renderer.light.Light;
 import com.ytgld.magic_chest.TheMagicChest;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import org.joml.Matrix3x2fStack;
+
+import java.util.function.Consumer;
 
 public class BaseItem extends Item {
     public BaseItem(Properties properties) {
@@ -28,8 +33,16 @@ public class BaseItem extends Item {
         return Identifier.fromNamespaceAndPath(TheMagicChest.MODID,"textures/gui/star.png");
     }
 
+    @Override
+    public final void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
+        this.appendHoverText(itemStack, builder, tooltipFlag);
+    }
+
+    public void appendHoverText(ItemStack itemStack, Consumer<Component> builder, TooltipFlag tooltipFlag) {
+
+    }
     public static void renderLight(GuiGraphicsExtractor guiGraphicsExtractor,
-                                   ItemStack itemStack, int x, int y,int seed){
+                                   ItemStack itemStack, int x, int y, int seed){
         if (itemStack.getItem() instanceof BaseItem item) {
             if (!item.canLight()) {
                 return;

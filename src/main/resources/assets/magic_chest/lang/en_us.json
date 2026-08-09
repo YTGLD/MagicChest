@@ -1,7 +1,11 @@
 {
   "itemGroup.magic_chest": "神秘箱子",
 
+  "magic_chest.sound.soul_pickup": "灵魂：拾取",
+
+
   "magic_chest.jei.recipe": "工作台合成",
+
 
   "item.magic_chest.blood_soul": "血魂",
   "magic_chest.soul.blood_soul": "血腥",

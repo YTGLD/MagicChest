@@ -3,10 +3,12 @@ package com.ytgld.magic_chest.entity;
 import com.ytgld.magic_chest.init.MagicEntitys;
 import com.ytgld.magic_chest.item.BaseItem;
 import com.ytgld.magic_chest.item.soul.SoulBottle;
+import com.ytgld.magic_chest.other.MagicSounds;
 import com.ytgld.magic_chest.renderer.particle.has_opt.CubeOption;
 import com.ytgld.magic_chest.renderer.particle.has_opt.MagicColorOption;
 import com.ytgld.magic_chest.renderer.particle.other.MagicParticles;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -99,9 +101,10 @@ public class TheSpirit extends ItemEntity {
     }
     @Override
     public void playerTouch(Player player) {
-        if (SoulBottle.addSoul(player, this)) {
+        if (!SoulBottle.addSoul(player, this)) {
             super.playerTouch(player);
         }
+        this.level().playSound(null,this.blockPosition(), MagicSounds.soul_pickup.value(), SoundSource.PLAYERS,1,1);
         setCanSee(false);
         if (getItem().getItem() instanceof BaseItem item) {
             if (this.level() instanceof ServerLevel serverLevel) {

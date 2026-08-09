@@ -8,6 +8,7 @@ import com.ytgld.magic_chest.init.MagicEntitys;
 import com.ytgld.magic_chest.init.MagicItems;
 import com.ytgld.magic_chest.init.MagicTab;
 import com.ytgld.magic_chest.item.GatherItemModel;
+import com.ytgld.magic_chest.other.MagicSounds;
 import com.ytgld.magic_chest.renderer.particle.other.MagicParticles;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -29,6 +30,8 @@ public class TheMagicChest {
         MagicData.REGISTRY.register(modEventBus);
         ModRecipes.SERIALIZERS.register(modEventBus);
         ModRecipes.TYPES.register(modEventBus);
+        MagicSounds.REGISTRY.register(modEventBus);
+
         modEventBus.addListener(this::gatherData);
 
         NeoForge.EVENT_BUS.register(new MagicEvent());

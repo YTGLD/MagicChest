@@ -1,8 +1,11 @@
 package com.ytgld.magic_chest;
 
+import com.ytgld.chest_item.config.ModLanguageProvider;
+import com.ytgld.chest_item.sounds.CISoundDefinitionsProvider;
 import com.ytgld.magic_chest.entity.render.TheSpiritRender;
 import com.ytgld.magic_chest.init.MagicEntitys;
 import com.ytgld.magic_chest.jei.ModRecipeCache;
+import com.ytgld.magic_chest.other.GenMagicSounds;
 import com.ytgld.magic_chest.other.ToolTipSpiritItem;
 import com.ytgld.magic_chest.renderer.RenderBlackItem;
 import com.ytgld.magic_chest.renderer.particle.has_opt.CubeParticle;
@@ -16,6 +19,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.function.Function;
 
@@ -37,6 +41,11 @@ public class TheMagicChestClient {
     @SubscribeEvent
     public static void RegisterRenderPipelinesEvent(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(MagicEntitys.TheSpirit_.get(), TheSpiritRender::new);
+    }
+
+    @SubscribeEvent
+    public static void gatherData(GatherDataEvent.Client event) {
+        event.createProvider(GenMagicSounds::new);
     }
     @SubscribeEvent
     public static void event(RecipesReceivedEvent event) {

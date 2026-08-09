@@ -1,0 +1,7 @@
+{
+  "model": {
+    "type": "magic_chest:big_model",
+    "model": "magic_chest:item/decay_sickle",
+    "identifier" : ""
+  }
+}

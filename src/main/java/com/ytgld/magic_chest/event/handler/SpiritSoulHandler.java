@@ -2,11 +2,13 @@ package com.ytgld.magic_chest.event.handler;
 
 import com.ytgld.magic_chest.entity.TheSpirit;
 import com.ytgld.magic_chest.init.MagicItems;
+import com.ytgld.magic_chest.item.tool.DecaySickle;
+import com.ytgld.magic_chest.other.MagicSounds;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 
 import java.util.ArrayList;
@@ -14,6 +16,10 @@ import java.util.ArrayList;
 public class SpiritSoulHandler {
     public static void event(LivingDeathEvent event){
         if (event.getSource().getEntity() instanceof Player player && event.getEntity() instanceof LivingEntity livingEntity) {
+            if (!DecaySickle.isSickle(player)) {
+                return;
+            }
+            playerSounds(player);
             for (int i = 0; i < 8; i++) {
                 ArrayList<Item> soul = soul();
                 Item item = soul.get(player.getRandom().nextInt((soul.size())));
@@ -27,6 +33,9 @@ public class SpiritSoulHandler {
                 player.level().addFreshEntity(spirit);
             }
         }
+    }
+    private static void playerSounds(Player player){
+        player.level().playSound(null,player.blockPosition(), MagicSounds.soul_fly.value(), SoundSource.PLAYERS,1,1);
     }
 
     private static ArrayList<Item> soul(){

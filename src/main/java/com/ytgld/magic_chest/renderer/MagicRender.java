@@ -7,7 +7,6 @@ import com.mojang.blaze3d.pipeline.DepthStencilState;
 import com.mojang.blaze3d.pipeline.RenderPipeline;
 import com.mojang.blaze3d.platform.CompareOp;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
-import com.ytgld.chest_item.Chestitem;
 import com.ytgld.magic_chest.TheMagicChest;
 import net.minecraft.client.renderer.BindGroupLayouts;
 import net.minecraft.client.renderer.rendertype.LayeringTransform;
@@ -97,7 +96,7 @@ public abstract class MagicRender {
         public static final RenderPipeline GUI_TEXTURED_BLACK_BlendFunction =
                 (RenderPipeline.builder(GUI_TEXTURED_SNIPPET).withColorTargetState(new ColorTargetState(BlendFunction.TRANSLUCENT))
                         .withDepthStencilState(DepthStencilState.DEFAULT)
-                        .withLocation(Identifier.fromNamespaceAndPath(Chestitem.MODID,"pipeline/gui_textured")).build());
+                        .withLocation(Identifier.fromNamespaceAndPath(TheMagicChest.MODID,"pipeline/gui_textured")).build());
 
     }
 }

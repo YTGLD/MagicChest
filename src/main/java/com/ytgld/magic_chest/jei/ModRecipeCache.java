@@ -2,7 +2,6 @@ package com.ytgld.magic_chest.jei;
 
 import com.ytgld.magic_chest.crafting.SoulRecipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.RecipesReceivedEvent;
 
 import java.util.ArrayList;

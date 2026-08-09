@@ -1,16 +1,5 @@
 package com.ytgld.magic_chest.renderer;
 
-import com.ytgld.chest_item.items.InitItems;
-import com.ytgld.chest_item.items.ItemBase;
-import com.ytgld.chest_item.renderer.book.CIBookScreen;
-import com.ytgld.chest_item.renderer.book.tool.AddBookPage;
-import com.ytgld.chest_item.renderer.book.tool.RegisterBookPage;
-import com.ytgld.chest_item.renderer.light.Light;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.phys.Vec2;
-
-import java.util.List;
 //
 //@AddBookPage
 //public class RecipeBook implements RegisterBookPage {

@@ -1,27 +1,14 @@
 package com.ytgld.magic_chest.jei;
 
 import com.ytgld.magic_chest.TheMagicChest;
-import com.ytgld.magic_chest.crafting.SoulDisplayRecipe;
-import com.ytgld.magic_chest.crafting.SoulRecipe;
 import com.ytgld.magic_chest.init.MagicItems;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
-import mezz.jei.api.recipe.types.IRecipeType;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeManager;
 import org.jspecify.annotations.NonNull;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @JeiPlugin
 public class ChestJeiPlugin implements IModPlugin {

@@ -1,6 +1,5 @@
 package com.ytgld.magic_chest.other;
 
-import com.ytgld.chest_item.sounds.Sounds;
 import com.ytgld.magic_chest.TheMagicChest;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.SoundDefinition;
@@ -20,6 +19,19 @@ public class GenMagicSounds extends SoundDefinitionsProvider {
                         .preload(false))
                         .subtitle(TheMagicChest.MODID+".sound.soul_pickup")
                         .replace(true));
-
+        this.add(MagicSounds.soul_create,
+                SoundDefinition.definition().with(
+                        sound(TheMagicChest.MODID + ":soul_create", SoundDefinition.SoundType.SOUND)
+                                .stream(true)
+                                .preload(false))
+                        .subtitle(TheMagicChest.MODID+".sound.soul_create")
+                        .replace(true));
+        this.add(MagicSounds.soul_fly,
+                SoundDefinition.definition().with(
+                                sound(TheMagicChest.MODID + ":soul_fly", SoundDefinition.SoundType.SOUND)
+                                        .stream(true)
+                                        .preload(false))
+                        .subtitle(TheMagicChest.MODID+".sound.soul_fly")
+                        .replace(true));
     }
 }

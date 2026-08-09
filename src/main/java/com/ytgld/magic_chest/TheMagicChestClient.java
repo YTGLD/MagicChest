@@ -1,16 +1,19 @@
 package com.ytgld.magic_chest;
 
-import com.ytgld.chest_item.config.ModLanguageProvider;
-import com.ytgld.chest_item.sounds.CISoundDefinitionsProvider;
+import com.ytgld.chest_item.Chestitem;
+import com.ytgld.chest_item.renderer.model.BigGlowingModel;
+import com.ytgld.chest_item.renderer.model.WarpModel;
 import com.ytgld.magic_chest.entity.render.TheSpiritRender;
 import com.ytgld.magic_chest.init.MagicEntitys;
 import com.ytgld.magic_chest.jei.ModRecipeCache;
 import com.ytgld.magic_chest.other.GenMagicSounds;
 import com.ytgld.magic_chest.other.ToolTipSpiritItem;
 import com.ytgld.magic_chest.renderer.RenderBlackItem;
+import com.ytgld.magic_chest.renderer.model.BigModel;
 import com.ytgld.magic_chest.renderer.particle.has_opt.CubeParticle;
 import com.ytgld.magic_chest.renderer.particle.has_opt.MagicChestParticle;
 import com.ytgld.magic_chest.renderer.particle.other.MagicParticles;
+import net.minecraft.resources.Identifier;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -42,7 +45,11 @@ public class TheMagicChestClient {
     public static void RegisterRenderPipelinesEvent(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(MagicEntitys.TheSpirit_.get(), TheSpiritRender::new);
     }
-
+    @SubscribeEvent
+    public static void registerItemModels(RegisterItemModelsEvent event) {
+        event.register(Identifier.fromNamespaceAndPath(TheMagicChest.MODID,"big_model"),
+                BigModel.Unbaked.MAP_CODEC);
+    }
     @SubscribeEvent
     public static void gatherData(GatherDataEvent.Client event) {
         event.createProvider(GenMagicSounds::new);

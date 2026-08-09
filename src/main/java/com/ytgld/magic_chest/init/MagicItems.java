@@ -1,9 +1,10 @@
 package com.ytgld.magic_chest.init;
 
-import com.ytgld.magic_chest.renderer.Light;
 import com.ytgld.magic_chest.TheMagicChest;
 import com.ytgld.magic_chest.item.BaseSoul;
 import com.ytgld.magic_chest.item.soul.SoulBottle;
+import com.ytgld.magic_chest.item.tool.DecaySickle;
+import com.ytgld.magic_chest.renderer.Light;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -27,5 +28,7 @@ public class MagicItems {
             (properties)-> new BaseSoul(properties, Light.ARGB.color(155,255,70,220)));
 
     public static final DeferredItem<Item> SoulBottle_ = ITEMS.registerItem("soul_bottle", SoulBottle::new);
+    public static final DeferredItem<Item> DecaySickle_ = ITEMS.registerItem("decay_sickle", DecaySickle::new);
+    public static final DeferredItem<Item> DecaySickle_Small = ITEMS.registerItem("decay_sickle_small", DecaySickle::new);
 
 }

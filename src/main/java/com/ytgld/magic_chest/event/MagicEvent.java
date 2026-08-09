@@ -1,6 +1,5 @@
 package com.ytgld.magic_chest.event;
 
-import com.ytgld.magic_chest.crafting.SoulRecipe;
 import com.ytgld.magic_chest.event.handler.CraftingHandler;
 import com.ytgld.magic_chest.event.handler.SpiritSoulHandler;
 import net.neoforged.bus.api.SubscribeEvent;

@@ -21,6 +21,7 @@ public class MagicTab {
             output.accept(MagicItems.DeathSoul_);
             output.accept(MagicItems.MagicSoul_);
             output.accept(MagicItems.SoulBottle_);
+            output.accept(MagicItems.DecaySickle_);
         }).build();
     });;
 }

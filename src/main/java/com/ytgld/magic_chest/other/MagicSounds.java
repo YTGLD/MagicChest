@@ -9,4 +9,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class MagicSounds {
     public static final DeferredRegister<SoundEvent> REGISTRY = DeferredRegister.create(Registries.SOUND_EVENT, TheMagicChest.MODID);
     public static final Holder<SoundEvent> soul_pickup = REGISTRY.register("soul_pickup",SoundEvent::createVariableRangeEvent);
+    public static final Holder<SoundEvent> soul_create = REGISTRY.register("soul_create",SoundEvent::createVariableRangeEvent);
+    public static final Holder<SoundEvent> soul_fly = REGISTRY.register("soul_fly",SoundEvent::createVariableRangeEvent);
 }

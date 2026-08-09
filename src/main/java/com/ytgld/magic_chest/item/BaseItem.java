@@ -1,10 +1,9 @@
 package com.ytgld.magic_chest.item;
 
 import com.mojang.blaze3d.pipeline.RenderPipeline;
-import com.ytgld.chest_item.renderer.MRender;
+import com.ytgld.magic_chest.TheMagicChest;
 import com.ytgld.magic_chest.event.MagicEvent;
 import com.ytgld.magic_chest.renderer.Light;
-import com.ytgld.magic_chest.TheMagicChest;
 import com.ytgld.magic_chest.renderer.MagicRender;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.renderer.RenderPipelines;
@@ -41,7 +40,16 @@ public class BaseItem extends Item {
         int k = width + 3 + 3 + 18;
         int l = height + 3 + 3 + 18;
         guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, farmer, i, j, k, l,colorF);
-        guiGraphics.blitSprite(MRender.RenderPs.GUI_TEXTURED, back, i, j, k, l,colorB);
+        guiGraphics.blitSprite(MagicRender.RenderPs.GUI_TEXTURED, back, i, j, k, l,colorB);
+    }
+    public void renderBack(GuiGraphicsExtractor guiGraphics, int x, int y, int width, int height) {
+        renderBack(guiGraphics, x, y, width, height,
+                Identifier.fromNamespaceAndPath(TheMagicChest.MODID, "tooltip/all/frame"),
+                Identifier.fromNamespaceAndPath(TheMagicChest.MODID, "tooltip/all/background"),
+
+                Light.ARGB.color(255, 255,255,255),
+                Light.ARGB.color(255, 255,255,255)
+        );
     }
     @Override
     public final void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {

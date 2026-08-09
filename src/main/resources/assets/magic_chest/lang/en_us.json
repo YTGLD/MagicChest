@@ -2,6 +2,8 @@
   "itemGroup.magic_chest": "神秘箱子",
 
   "magic_chest.sound.soul_pickup": "灵魂：拾取",
+  "magic_chest.sound.soul_create": "灵魂：出现",
+  "magic_chest.sound.soul_fly": "灵魂：飞行",
 
 
   "magic_chest.jei.recipe": "工作台合成",
@@ -24,5 +26,7 @@
 
 
   "item.magic_chest.soul_bottle": "灵魂瓶",
-  "item.magic_chest.soul_bottle.tooltip.1": "收集那些飞散的灵魂，多收集一些"
+  "item.magic_chest.soul_bottle.tooltip.1": "收集那些飞散的灵魂，多收集一些",
+  "item.magic_chest.decay_sickle": "枯镰",
+  "item.magic_chest.decay_sickle.tooltip.1": "击杀生物掉落灵魂"
 }

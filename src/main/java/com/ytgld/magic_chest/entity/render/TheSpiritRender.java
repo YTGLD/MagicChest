@@ -3,11 +3,11 @@ package com.ytgld.magic_chest.entity.render;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-import com.ytgld.chest_item.renderer.MRender;
-import com.ytgld.magic_chest.renderer.Light;
 import com.ytgld.magic_chest.entity.TheSpirit;
 import com.ytgld.magic_chest.entity.state.TheSpiritState;
 import com.ytgld.magic_chest.item.BaseItem;
+import com.ytgld.magic_chest.renderer.Light;
+import com.ytgld.magic_chest.renderer.MagicRender;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -54,7 +54,7 @@ public class TheSpiritRender  extends EntityRenderer<TheSpirit, TheSpiritState> 
         double z = Mth.lerp((double)renderState.partialTick, entity.zOld, entity.getZ());
         poseStack.pushPose();
         poseStack.translate(entity.getX() - x, entity.getY() - y, entity.getZ() - z);
-        collector.submitCustomGeometry(poseStack, MRender.colorOutlineLines(false), (pose, bufferSource) -> this.setT2(pose, entity, bufferSource));
+        collector.submitCustomGeometry(poseStack, MagicRender.line, (pose, bufferSource) -> this.setT2(pose, entity, bufferSource));
 
         if (entity.canSee) {
             if (!renderState.item.isEmpty()) {

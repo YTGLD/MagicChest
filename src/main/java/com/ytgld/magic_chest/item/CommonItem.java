@@ -24,7 +24,6 @@ public class CommonItem extends BaseItem{
         co.setStyle(Style.EMPTY.withColor(TextColor.fromRgb(Light.ARGB.color(255,200,200,130))));
         return co;
     }
-
     public void renderBack(GuiGraphicsExtractor guiGraphics, int x, int y, int width, int height) {
         renderBack(guiGraphics, x, y, width, height,
                 Identifier.fromNamespaceAndPath(TheMagicChest.MODID, "tooltip/all/frame"),
@@ -34,6 +33,7 @@ public class CommonItem extends BaseItem{
                 Light.ARGB.color(255, 25,25,16)
         );
     }
+
     @Override
     public boolean canLight() {
         return false;

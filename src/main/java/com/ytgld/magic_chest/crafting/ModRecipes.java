@@ -2,9 +2,11 @@ package com.ytgld.magic_chest.crafting;
 
 import com.ytgld.magic_chest.TheMagicChest;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+
 public class ModRecipes {
 
 

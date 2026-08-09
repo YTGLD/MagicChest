@@ -1,8 +1,6 @@
 package com.ytgld.magic_chest.renderer;
 
 
-import com.ytgld.chest_item.renderer.MRender;
-import com.ytgld.magic_chest.renderer.Light;
 import com.ytgld.magic_chest.TheMagicChest;
 import com.ytgld.magic_chest.item.BaseItem;
 import net.minecraft.client.gui.GuiGraphicsExtractor;

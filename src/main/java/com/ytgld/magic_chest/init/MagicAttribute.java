@@ -34,12 +34,28 @@ public class MagicAttribute {
     public static final DeferredHolder<Attribute, ?> counter = REGISTER.register("counter",
             () -> (new RangedAttribute(TheMagicChest.MODID + ".attribute.counter",
                     0.0F, 0, 100)).setSyncable(true));
-    public static final Supplier<AttachmentType<Integer>> counter_data= ATTACHMENT_TYPES.register("counter_data",
+    public static final Supplier<AttachmentType<Integer>> counter_data=
+            ATTACHMENT_TYPES.register("counter_data",
             () -> AttachmentType.builder(() -> 0).sync(new IntSyncHandler())
                     .serialize(Codec.INT.fieldOf("counter_data")).build());
-    public static final Supplier<AttachmentType<Integer>> counter_data_cooldown= ATTACHMENT_TYPES.register("counter_data_cooldown",
+
+    public static final Supplier<AttachmentType<Integer>> counter_data_cooldown=
+            ATTACHMENT_TYPES.register("counter_data_cooldown",
             () -> AttachmentType.builder(() -> 0).sync(new IntSyncHandler())
                     .serialize(Codec.INT.fieldOf("counter_data_cooldown")).build());
+
+    /**
+     * 连斩
+     * <p>
+     * 与反制搭配
+     * <p>
+     * 适当连击可提高伤害
+     */
+    public static final Supplier<AttachmentType<Integer>> score_consecutive_victories=
+            ATTACHMENT_TYPES.register("score_consecutive_victories",
+            () -> AttachmentType.builder(() -> 0).sync(new IntSyncHandler())
+                    .serialize(Codec.INT.fieldOf("score_consecutive_victories")).build());
+
 
 
 

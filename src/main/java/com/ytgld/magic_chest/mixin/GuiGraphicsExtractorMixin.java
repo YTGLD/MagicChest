@@ -1,9 +1,7 @@
 package com.ytgld.magic_chest.mixin;
 
-import com.ytgld.chest_item.items.InitItems;
 import com.ytgld.magic_chest.init.MagicItems;
 import com.ytgld.magic_chest.item.BaseItem;
-import com.ytgld.magic_chest.item.CommonItem;
 import com.ytgld.magic_chest.renderer.RenderBlackItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;

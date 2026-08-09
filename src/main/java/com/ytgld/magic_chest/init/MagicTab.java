@@ -10,7 +10,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class MagicTab {
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, "chest_item");
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TheMagicChest.MODID);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> tab = CREATIVE_MODE_TABS.register(TheMagicChest.MODID, () -> {
         CreativeModeTab.Builder builder = CreativeModeTab.builder().title(Component.translatable("itemGroup.magic_chest"));
         Item item = Items.RESPAWN_ANCHOR;

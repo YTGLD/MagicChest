@@ -1,13 +1,13 @@
 package com.ytgld.magic_chest;
 
-import com.ytgld.chest_item.Chestitem;
-import com.ytgld.chest_item.renderer.model.BigGlowingModel;
-import com.ytgld.chest_item.renderer.model.WarpModel;
+import com.ytgld.chest_item.renderer.BlackShieldRenderHandler;
+import com.ytgld.chest_item.renderer.ShieldRenderHandler;
 import com.ytgld.magic_chest.entity.render.TheSpiritRender;
 import com.ytgld.magic_chest.init.MagicEntitys;
 import com.ytgld.magic_chest.jei.ModRecipeCache;
 import com.ytgld.magic_chest.other.GenMagicSounds;
 import com.ytgld.magic_chest.other.ToolTipSpiritItem;
+import com.ytgld.magic_chest.renderer.CounterRender;
 import com.ytgld.magic_chest.renderer.RenderBlackItem;
 import com.ytgld.magic_chest.renderer.model.BigModel;
 import com.ytgld.magic_chest.renderer.particle.has_opt.CubeParticle;
@@ -22,6 +22,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.*;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.function.Function;
@@ -50,6 +51,13 @@ public class TheMagicChestClient {
         event.register(Identifier.fromNamespaceAndPath(TheMagicChest.MODID,"big_model"),
                 BigModel.Unbaked.MAP_CODEC);
     }
+    @SubscribeEvent
+    public static void registerOverlays(RegisterGuiLayersEvent event) {
+        event.registerAbove(VanillaGuiLayers.TITLE,
+                Identifier.fromNamespaceAndPath(TheMagicChest.MODID, "counter"),
+                (guiGraphics, tracker) -> CounterRender.renderShield(guiGraphics));
+    }
+
     @SubscribeEvent
     public static void gatherData(GatherDataEvent.Client event) {
         event.createProvider(GenMagicSounds::new);

@@ -1,6 +1,5 @@
 package com.ytgld.magic_chest.entity;
 
-import com.ytgld.chest_item.sounds.Sounds;
 import com.ytgld.magic_chest.init.MagicEntitys;
 import com.ytgld.magic_chest.item.BaseItem;
 import com.ytgld.magic_chest.item.soul.SoulBottle;
@@ -9,7 +8,6 @@ import com.ytgld.magic_chest.renderer.particle.has_opt.CubeOption;
 import com.ytgld.magic_chest.renderer.particle.has_opt.MagicColorOption;
 import com.ytgld.magic_chest.renderer.particle.other.MagicParticles;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;

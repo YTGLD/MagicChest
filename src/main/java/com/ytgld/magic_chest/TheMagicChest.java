@@ -3,10 +3,7 @@ package com.ytgld.magic_chest;
 import com.mojang.logging.LogUtils;
 import com.ytgld.magic_chest.crafting.ModRecipes;
 import com.ytgld.magic_chest.event.MagicEvent;
-import com.ytgld.magic_chest.init.MagicData;
-import com.ytgld.magic_chest.init.MagicEntitys;
-import com.ytgld.magic_chest.init.MagicItems;
-import com.ytgld.magic_chest.init.MagicTab;
+import com.ytgld.magic_chest.init.*;
 import com.ytgld.magic_chest.item.GatherItemModel;
 import com.ytgld.magic_chest.other.MagicSounds;
 import com.ytgld.magic_chest.renderer.particle.other.MagicParticles;
@@ -31,6 +28,8 @@ public class TheMagicChest {
         ModRecipes.SERIALIZERS.register(modEventBus);
         ModRecipes.TYPES.register(modEventBus);
         MagicSounds.REGISTRY.register(modEventBus);
+        MagicAttribute.REGISTER.register(modEventBus);
+        MagicAttribute.ATTACHMENT_TYPES.register(modEventBus);
 
         modEventBus.addListener(this::gatherData);
 

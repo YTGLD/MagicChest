@@ -1,0 +1,32 @@
+{
+  "soul_create": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "magic_chest:soul_create",
+        "stream": true
+      }
+    ],
+    "subtitle": "magic_chest.sound.soul_create"
+  },
+  "soul_fly": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "magic_chest:soul_fly",
+        "stream": true
+      }
+    ],
+    "subtitle": "magic_chest.sound.soul_fly"
+  },
+  "soul_pickup": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "magic_chest:soul_pickup",
+        "stream": true
+      }
+    ],
+    "subtitle": "magic_chest.sound.soul_pickup"
+  }
+}
